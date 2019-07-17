@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+  <form  id ="board_form" action="{%  url 'board_dec'  %}" method="post" >
+    {% csrf_token %}
+    <div class="form-group">
+      {% block breadcrumb %}
+      <li class="breadcrumb-item active">Boards</li>
+      {% endblock %}
+      <label for="board_name">Board</label>
+      <input type="text" class="form-control" id="board_name" name="board">
+    </div>
+    <div class="form-group">
+      <label for="description">Message</label>
+      <textarea class="form-control" id="description" name="description" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Post</button>
+  </form>
+{% endblock %}
+</body>
+</html>

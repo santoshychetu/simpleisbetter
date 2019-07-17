@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for field in form %}
+  <div class="form-group">
+    {{ field.label_tag }}
+
+    <!-- code suppressed for brevity -->
+
+    {% if field.help_text %}
+      <small class="form-text text-muted">
+        {{ field.help_text|safe }}  <!-- new code here -->
+      </small>
+    {% endif %}
+  </div>
+{% endfor %}
+</body>
+</html>
