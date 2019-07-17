@@ -12,9 +12,9 @@ def board(request):
 
     return render(request, 'board.html', {'':''})
 
+# for board description
 
 def board_dec(request):
-
     if request.POST:
         board = request.POST.get('board')
         description = request.POST.get('description')
@@ -56,3 +56,4 @@ def new_topic(request, pk):
         return redirect('board_topics', pk=board.pk)  # TODO: redirect to the created topic page
 
     return render(request, 'new_topic.html', {'board': board})
+
